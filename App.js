@@ -1,32 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { Camera, CameraType } from 'expo-camera';
-import { useState } from 'react';
+import { View, StyleSheet } from "react-native";
+import Icon from 'react-native-vector-icons/Entypo';
+import Casa from "./Casa";
 
-export default function App() {
+export default function App()
+{
+    return (
+        <View style={css.tela}>
+            <View style={css.tabuleiro}>
+                <Casa />
+                <Casa />
+                <Casa />
 
-  const [permission, requestPermission] = Camera.useCameraPermissions();
-  console.log(permission);
+                <Casa />
+                <Casa />
+                <Casa />
 
-  return (
-    <View style={styles.container}>
-      <Text>O aplicativo eu já estou editando, mas cadê a Steice que não vem logo?!?!</Text>
-      <Button title='Abri camera' onPress={requestPermission} />
-      <Camera style={styles.camera} type={CameraType.front}/>
-      <StatusBar style="auto" />
-    </View>
-  );
+                <Casa />
+                <Casa />
+                <Casa />
+
+            </View>
+        </View>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  camera: {
-    width: 200,
-    height: 400,
-  }
-});
+const css = StyleSheet.create({
+    tela: {
+        borderColor: "black",
+        borderWidth: 1,
+        borderStyle: "solid",
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    tabuleiro: {
+        width: 300,
+        height: 300,
+        flexWrap: "wrap",
+        flexDirection: "row",
+    },
+    casa: {
+        height: 100,
+        width: 100,
+        borderColor: "black",
+        borderStyle: "solid",
+        borderWidth: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    }
+})
